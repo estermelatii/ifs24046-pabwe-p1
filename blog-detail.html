@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>How to Deploy a Web Application Using Docker and NGINX on Your Own Server</title>
+  <title>Blog Detail</title>
 </head>
 <body>
 
@@ -21,41 +21,89 @@
 
   <hr>
 
-  <img src="images/iii.png" width="100%" alt="Docker and NGINX cover">
+  <img id="coverImg" src="images/iii.png" width="100%" alt="Cover artikel">
 
   <p>
-    <img src="images/iii.png" width="32" height="32" alt="Vishnu Satheesh">
-    &nbsp;<span><b>Vishnu Satheesh</b></span><br>
-    <span>Posted on May 31</span>
+    <img id="avatarImg" src="https://placehold.co/32x32" width="32" height="32" alt="Foto penulis">
+    &nbsp;<span><b id="authorName"></b></span><br>
+    <span id="postDate"></span>
   </p>
 
-  <h1>How to Deploy a Web Application Using Docker and NGINX on Your Own Server</h1>
+  <h1 id="postTitle"></h1>
 
-  <p><span>#webdev</span>&nbsp;&nbsp;<span>#devops</span></p>
+  <p id="postTags"></p>
 
   <hr>
 
-  <p>Deploying a web application doesn't need to be a complicated process. With Docker, NGINX, and your own server, you can get your app live in no time.</p>
-  <p>In this post, I'll show step by step how to serve an app with a domain, route traffic with NGINX, and run it all inside a Docker container. This guide is tailored for a Linux-based server.</p>
-
-  <h2>Step 1: Setup Docker</h2>
-  <p>First, set up Docker. A simple app is used as an example here, but feel free to use any application or codebase of your choice. Create a Dockerfile in the project directory to define how the app should be containerized.</p>
-
-  <h2>Step 2: Build and Run the Docker Container (on your server)</h2>
-  <p>Once the Dockerfile is created, the next step is to build the Docker image and run it to make sure everything works as expected before wiring it up to NGINX.</p>
-
-  <h2>Conclusion</h2>
-  <p>Deploying a web application using Docker and NGINX on your own server might sound intimidating at first, but once broken down, it is quite manageable. By containerizing the app, setting up NGINX as a reverse proxy, and linking everything together on your server, you gain full control over the deployment process.</p>
+  <div id="postBody"></div>
 
   <hr>
 
   <h2>Top comments (0)</h2>
   <p>
-    <img src="images/iii.png" width="32" height="32" alt="Your avatar"><br>
+    <img src="https://placehold.co/32x32" width="32" height="32" alt="Your avatar"><br>
     <textarea rows="3" placeholder="Add to the discussion"></textarea>
   </p>
 
   </main>
+
+  <script>
+    var posts = {
+      "1": {
+        title: "A beginner's guide to the Ltx-Video-0.9.7 model by Replicate",
+        author: "aimodels-fyi",
+        date: "Posted on Jun 1",
+        tags: "#coding&nbsp;&nbsp;#ai",
+        body: "<p>Ltx-Video-0.9.7 is a text-to-video model available on Replicate that lets you generate short video clips from a simple text prompt. This guide walks through the basics of getting it running for the first time.</p>" +
+              "<p>No local GPU setup is required since Replicate hosts the model for you, you only need an API token and a few lines of code to call it.</p>" +
+              "<h2>Step 1: Get a Replicate API Token</h2>" +
+              "<p>Create a free account on Replicate, then generate an API token from the account settings page. Keep this token private, it's what authorizes your requests to run the model.</p>" +
+              "<h2>Step 2: Call the Model</h2>" +
+              "<p>Install the Replicate client library for your language of choice, then send a request containing your text prompt along with optional parameters such as video length and resolution. The response will include a link to the generated video once processing is complete.</p>" +
+              "<h2>Conclusion</h2>" +
+              "<p>Getting started with Ltx-Video-0.9.7 on Replicate is straightforward: grab an API token, install the client, and send a prompt. From there you can experiment with different prompt styles to see what kind of video output works best for your use case.</p>"
+      },
+      "2": {
+        title: "Securing Redis with ACLs and Integrating Redis Insight in Docker",
+        author: "Ali nazari",
+        date: "Posted on May 31",
+        tags: "#docker&nbsp;&nbsp;#webdev",
+        body: "<p>Running Redis without any access control means anyone who can reach the port can read and write all your data. Access Control Lists, or ACLs, let you define exactly which commands and keys each user is allowed to touch.</p>" +
+              "<p>This post covers setting up basic ACL rules for Redis, and hooking up Redis Insight inside a Docker container so you can inspect your data visually while developing.</p>" +
+              "<h2>Step 1: Enable ACLs on Redis</h2>" +
+              "<p>Create a dedicated user with a strong password and restrict it to only the commands your application actually needs, instead of relying on the default user which has full access to everything.</p>" +
+              "<h2>Step 2: Run Redis Insight in Docker</h2>" +
+              "<p>Pull the official Redis Insight image and run it alongside your Redis container. Once it's up, connect it to your Redis instance using the restricted user you created, so you can browse keys and monitor activity without exposing full admin access.</p>" +
+              "<h2>Conclusion</h2>" +
+              "<p>Setting up ACLs takes only a few extra steps but significantly reduces the risk of accidental or malicious data access. Combined with Redis Insight running in Docker, you get both a safer setup and an easier way to inspect what's happening inside your database.</p>"
+      },
+      "3": {
+        title: "How to Deploy a Web Application Using Docker and NGINX on Your Own Server",
+        author: "Vishnu Satheesh",
+        date: "Posted on May 31",
+        tags: "#webdev&nbsp;&nbsp;#devops",
+        body: "<p>Deploying a web application doesn't need to be a complicated process. With Docker, NGINX, and your own server, you can get your app live in no time.</p>" +
+              "<p>In this post, I'll show step by step how to serve an app with a domain, route traffic with NGINX, and run it all inside a Docker container. This guide is tailored for a Linux-based server.</p>" +
+              "<h2>Step 1: Setup Docker</h2>" +
+              "<p>First, set up Docker. A simple app is used as an example here, but feel free to use any application or codebase of your choice. Create a Dockerfile in the project directory to define how the app should be containerized.</p>" +
+              "<h2>Step 2: Build and Run the Docker Container (on your server)</h2>" +
+              "<p>Once the Dockerfile is created, the next step is to build the Docker image and run it to make sure everything works as expected before wiring it up to NGINX.</p>" +
+              "<h2>Conclusion</h2>" +
+              "<p>Deploying a web application using Docker and NGINX on your own server might sound intimidating at first, but once broken down, it is quite manageable. By containerizing the app, setting up NGINX as a reverse proxy, and linking everything together on your server, you gain full control over the deployment process.</p>"
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var postId = params.get('post') || '3';
+    var post = posts[postId] || posts['3'];
+
+    document.title = post.title;
+    document.getElementById('postTitle').textContent = post.title;
+    document.getElementById('authorName').textContent = post.author;
+    document.getElementById('postDate').textContent = post.date;
+    document.getElementById('postTags').innerHTML = post.tags;
+    document.getElementById('postBody').innerHTML = post.body;
+  </script>
 
 </body>
 </html>
