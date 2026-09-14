@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IMDb Chart - Top 3 Movies</title>
+</head>
+<body>
+
+  <nav aria-label="Navigasi situs">
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+      <tr>
+        <td><a href="index.html">IMDb Top 3 Movies</a></td>
+        <td><a href="blog.html">Dev Blogs</a></td>
+        <td><a href="form.html">Form Pendaftaran</a></td>
+        <td><a href="cv.html">CV</a></td>
+      </tr>
+    </table>
+  </nav>
+
+  <header>
+    <table width="100%" border="0" cellpadding="8">
+      <tr>
+        <td><strong>IMDb Chart</strong></td>
+        <td>
+          <nav aria-label="Kategori film">
+            <a href="#">Top Movies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#">Top Series</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#">Most Popular</a>
+          </nav>
+        </td>
+        <td align="right">
+          <form onsubmit="return searchMovie()">
+            <input type="text" id="searchInput" placeholder="Search movie title...">
+            <button type="submit">Search</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </header>
+
+  <main>
+
+    <hr>
+
+    <section>
+      <h3>IMDb Chart</h3>
+      <h1>IMDb Top 3 Movies</h1>
+      <p>Daftar film dengan rating tertinggi sepanjang masa versi IMDb, disusun berdasarkan penilaian jutaan penonton di seluruh dunia.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Movie Ranking Chart</h2>
+      <p>
+      <label for="sortSelect">Urutkan berdasarkan:&nbsp;</label>
+      <select id="sortSelect" onchange="sortMovies()">
+        <option value="rank">Ranking</option>
+        <option value="rating">Rating</option>
+        <option value="year">Tahun</option>
+      </select>
+      &nbsp;&nbsp;
+      <button type="button" onclick="surpriseMe()">Surprise Me</button>
+    </p>
+
+    <table id="movieTable" border="0" cellpadding="12">
+      <thead>
+        <tr><th align="left">Poster</th><th align="left">Movie Info</th></tr>
+      </thead>
+      <tbody>
+        <tr data-rank="1" data-rating="9.3" data-year="1994">
+          <td><img src="https://placehold.co/72x107" width="72" height="107" alt="The Shawshank Redemption"></td>
+          <td>
+            <h3>1. The Shawshank Redemption</h3>
+            <p><span>1994</span>&nbsp;&nbsp;<span>2h 22m</span>&nbsp;&nbsp;<span>15</span></p>
+            <p>&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;Rating: 9.3 / 10 &nbsp;(3.1M votes)</p>
+            <p>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</p>
+            <details>
+              <summary>More Information</summary>
+              <p><b>Genre:</b> Drama</p>
+              <p><b>Director:</b> Frank Darabont</p>
+              <p><b>Cast:</b> Tim Robbins, Morgan Freeman</p>
+            </details>
+          </td>
+        </tr>
+        <tr data-rank="2" data-rating="9.2" data-year="1972">
+          <td><img src="https://placehold.co/72x107" width="72" height="107" alt="The Godfather"></td>
+          <td>
+            <h3>2. The Godfather</h3>
+            <p><span>1972</span>&nbsp;&nbsp;<span>2h 55m</span>&nbsp;&nbsp;<span>15</span></p>
+            <p>&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;Rating: 9.2 / 10 &nbsp;(2.1M votes)</p>
+            <p>The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.</p>
+            <details>
+              <summary>More Information</summary>
+              <p><b>Genre:</b> Crime, Drama</p>
+              <p><b>Director:</b> Francis Ford Coppola</p>
+              <p><b>Cast:</b> Marlon Brando, Al Pacino</p>
+            </details>
+          </td>
+        </tr>
+        <tr data-rank="3" data-rating="9.3" data-year="2008">
+          <td><img src="https://placehold.co/72x107" width="72" height="107" alt="The Dark Knight"></td>
+          <td>
+            <h3>3. The Dark Knight</h3>
+            <p><span>2008</span>&nbsp;&nbsp;<span>2h 32m</span>&nbsp;&nbsp;<span>12A</span></p>
+            <p>&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;Rating: 9.3 / 10 &nbsp;(3.1M votes)</p>
+            <p>When the menace known as the Joker wreaks havoc on Gotham, Batman must accept one of the greatest psychological tests of his ability to fight injustice.</p>
+            <details>
+              <summary>More Information</summary>
+              <p><b>Genre:</b> Action, Crime, Drama</p>
+              <p><b>Director:</b> Christopher Nolan</p>
+              <p><b>Cast:</b> Christian Bale, Heath Ledger</p>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  </main>
+
+  <footer>
+    <hr>
+    <p><small>IMDb Chart Clone &mdash; dibuat murni dengan HTML, tanpa CSS.</small></p>
+  </footer>
+
+  <script>
+    function searchMovie() {
+      var input = document.getElementById('searchInput').value.toLowerCase();
+      var rows = document.querySelectorAll('#movieTable tbody tr');
+      var found = false;
+      rows.forEach(function (row) {
+        var title = row.querySelector('h3').textContent.toLowerCase();
+        if (title.indexOf(input) !== -1) {
+          row.hidden = false;
+          found = true;
+        } else {
+          row.hidden = true;
+        }
+      });
+      if (!found) {
+        alert('Film tidak ditemukan.');
+      }
+      return false;
+    }
+
+    function sortMovies() {
+      var select = document.getElementById('sortSelect');
+      var key = select.value;
+      var tbody = document.querySelector('#movieTable tbody');
+      var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+      rows.sort(function (a, b) {
+        var va = parseFloat(a.dataset[key]);
+        var vb = parseFloat(b.dataset[key]);
+        return key === 'rank' ? va - vb : vb - va;
+      });
+      rows.forEach(function (row) {
+        tbody.appendChild(row);
+      });
+    }
+
+    function surpriseMe() {
+      var titles = ['The Shawshank Redemption', 'The Godfather', 'The Dark Knight'];
+      var pick = titles[Math.floor(Math.random() * titles.length)];
+      alert('Rekomendasi untukmu malam ini: ' + pick + '!');
+    }
+  </script>
+
+</body>
+</html>

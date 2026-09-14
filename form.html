@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran Akun</title>
+</head>
+<body>
+
+  <nav aria-label="Navigasi situs">
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+      <tr>
+        <td><a href="index.html">IMDb Top 3 Movies</a></td>
+        <td><a href="blog.html">Dev Blogs</a></td>
+        <td><a href="form.html">Form Pendaftaran</a></td>
+        <td><a href="cv.html">CV</a></td>
+      </tr>
+    </table>
+  </nav>
+
+  <main>
+
+  <hr>
+
+  <h1>Form Pendaftaran Akun</h1>
+
+  <br><br><br>
+
+  <form>
+    <fieldset>
+      <legend>Daftar Akun</legend>
+
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" name="nama">
+
+      <hr>
+
+      <label>Jenis Kelamin:</label>
+      <input type="radio" id="lakilaki" name="jenis_kelamin" value="Laki-Laki">
+      <label for="lakilaki">Laki-Laki</label>
+      <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+      <label for="perempuan">Perempuan</label>
+
+      <hr>
+
+      <label for="tempat_lahir">Tempat Lahir:</label>
+      <input type="text" id="tempat_lahir" name="tempat_lahir">
+
+      <hr>
+
+      <label for="tanggal_lahir">Tanggal Lahir:</label>
+      <input type="date" id="tanggal_lahir" name="tanggal_lahir">
+
+      <hr>
+
+      <label for="agama">Agama:</label>
+      <select id="agama" name="agama">
+        <option value="">--- Pilih Agama ---</option>
+        <option value="Islam">Islam</option>
+        <option value="Katolik">Katolik</option>
+        <option value="Protestan">Protestan</option>
+        <option value="Hindu">Hindu</option>
+        <option value="Buddha">Buddha</option>
+        <option value="Konghucu">Konghucu</option>
+      </select>
+
+      <hr>
+
+      <label>Hobi:</label>
+      <input type="checkbox" id="olahraga" name="hobi" value="Olahraga">
+      <label for="olahraga">Olahraga</label>
+      <input type="checkbox" id="membaca" name="hobi" value="Membaca">
+      <label for="membaca">Membaca</label>
+      <input type="checkbox" id="ngoding" name="hobi" value="Ngoding">
+      <label for="ngoding">Ngoding</label>
+
+      <hr>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+
+      <hr>
+
+      <input type="checkbox" id="persetujuan" name="persetujuan">
+      <label for="persetujuan">Dengan mendaftar saya setuju dengan Ketentuan dan Kebijakan Privasi Aplikasi.</label>
+
+      <br><br>
+
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+
+  </main>
+
+</body>
+</html>
