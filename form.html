@@ -2,6 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Form pendaftaran akun.">
+  <meta name="author" content="Ester Melati Manurung">
   <title>Form Pendaftaran Akun</title>
 </head>
 <body>
@@ -30,12 +33,12 @@
       <legend>Daftar Akun</legend>
 
       <label for="nama">Nama Lengkap:</label>
-      <input type="text" id="nama" name="nama">
+      <input type="text" id="nama" name="nama" required>
 
       <hr>
 
       <label>Jenis Kelamin:</label>
-      <input type="radio" id="lakilaki" name="jenis_kelamin" value="Laki-Laki">
+      <input type="radio" id="lakilaki" name="jenis_kelamin" value="Laki-Laki" required>
       <label for="lakilaki">Laki-Laki</label>
       <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
       <label for="perempuan">Perempuan</label>
@@ -43,17 +46,17 @@
       <hr>
 
       <label for="tempat_lahir">Tempat Lahir:</label>
-      <input type="text" id="tempat_lahir" name="tempat_lahir">
+      <input type="text" id="tempat_lahir" name="tempat_lahir" required>
 
       <hr>
 
       <label for="tanggal_lahir">Tanggal Lahir:</label>
-      <input type="date" id="tanggal_lahir" name="tanggal_lahir">
+      <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
 
       <hr>
 
       <label for="agama">Agama:</label>
-      <select id="agama" name="agama">
+      <select id="agama" name="agama" required>
         <option value="">--- Pilih Agama ---</option>
         <option value="Islam">Islam</option>
         <option value="Katolik">Katolik</option>
@@ -76,11 +79,11 @@
       <hr>
 
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password">
+      <input type="password" id="password" name="password" required minlength="8">
 
       <hr>
 
-      <input type="checkbox" id="persetujuan" name="persetujuan">
+      <input type="checkbox" id="persetujuan" name="persetujuan" required>
       <label for="persetujuan">Dengan mendaftar saya setuju dengan Ketentuan dan Kebijakan Privasi Aplikasi.</label>
 
       <br><br>

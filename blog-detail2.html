@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cara mengamankan Redis dengan ACL dan integrasi Redis Insight di Docker.">
+  <meta name="author" content="Ester Melati Manurung">
+  <title>Securing Redis with ACLs and Integrating Redis Insight in Docker</title>
+</head>
+<body>
+
+  <nav aria-label="Navigasi situs">
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+      <tr>
+        <td><a href="index.html">IMDb Top 3 Movies</a></td>
+        <td><a href="blog.html">Dev Blogs</a></td>
+        <td><a href="form.html">Form Pendaftaran</a></td>
+        <td><a href="cv.html">CV</a></td>
+      </tr>
+    </table>
+  </nav>
+
+  <main>
+
+  <hr>
+
+  <img src="https://placehold.co/1200x400" width="100%" alt="Redis security cover">
+
+  <p>
+    <img src="images/ya.jpeg" width="32" height="32" alt="Ali nazari">
+    &nbsp;<span><b>Ali nazari</b></span><br>
+    <span>Posted on May 31</span>
+  </p>
+
+  <h1>Securing Redis with ACLs and Integrating Redis Insight in Docker</h1>
+
+  <p><span>#docker</span>&nbsp;&nbsp;<span>#webdev</span></p>
+
+  <hr>
+
+  <p>Running Redis without any access control means anyone who can reach the port can read and write all your data. Access Control Lists, or ACLs, let you define exactly which commands and keys each user is allowed to touch.</p>
+  <p>This post covers setting up basic ACL rules for Redis, and hooking up Redis Insight inside a Docker container so you can inspect your data visually while developing.</p>
+
+  <h2>Step 1: Enable ACLs on Redis</h2>
+  <p>Create a dedicated user with a strong password and restrict it to only the commands your application actually needs, instead of relying on the default user which has full access to everything.</p>
+
+  <h2>Step 2: Run Redis Insight in Docker</h2>
+  <p>Pull the official Redis Insight image and run it alongside your Redis container. Once it's up, connect it to your Redis instance using the restricted user you created, so you can browse keys and monitor activity without exposing full admin access.</p>
+
+  <h2>Conclusion</h2>
+  <p>Setting up ACLs takes only a few extra steps but significantly reduces the risk of accidental or malicious data access. Combined with Redis Insight running in Docker, you get both a safer setup and an easier way to inspect what's happening inside your database.</p>
+
+  <hr>
+
+  <h2>Top comments (0)</h2>
+  <p>
+    <img src="images/ya.jpeg" width="32" height="32" alt="Your avatar"><br>
+    <textarea rows="3" placeholder="Add to the discussion"></textarea>
+  </p>
+
+  </main>
+
+</body>
+</html>
